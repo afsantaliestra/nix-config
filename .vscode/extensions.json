@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "bbenoist.nix",
+    "esbenp.prettier-vscode",
+    "mhutchie.git-graph",
+    "waderyan.gitblame",
+    "ms-vscode.makefile-tools",
+    "shardulm94.trailing-spaces"
+  ]
+}
