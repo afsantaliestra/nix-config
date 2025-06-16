@@ -1,3 +1,6 @@
+setup:
+	git update-index --assume-unchanged ./nix/config.nix
+
 fmt:
 	cd nix; nix fmt ./
 
