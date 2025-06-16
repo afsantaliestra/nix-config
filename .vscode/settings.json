@@ -14,6 +14,7 @@
     "editor.tabSize": 2
   },
   "[nix]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false
   }
 }

@@ -43,7 +43,31 @@
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
     userConfig = import ./config.nix;
-
+    # NixOS 25.05
+    nixosConfigurations = {
+      "nixos" = nixpkgs-25-05.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit outputs;
+        };
+        modules = [
+          ./hosts/home-server/configuration.nix
+          home-manager-25-05.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = false;
+            home-manager.useUserPackages = false;
+            home-manager.users."${outputs.userConfig.user.username}" = import ./home/nixos.nix;
+            home-manager.extraSpecialArgs = {
+              pkgs = pkgs-25-05;
+              inherit inputs;
+              inherit outputs;
+            };
+          }
+        ];
+      };
+    };
+    # Non-NixOS with Home Manager 25.05
     homeConfigurations = {
       "debian" = home-manager-25-05.lib.homeManagerConfiguration {
         pkgs = pkgs-25-05;
