@@ -11,7 +11,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./packages.nix
+    ./system-packages.nix
     ./users.nix
   ];
 
@@ -43,6 +43,7 @@
         11434
       ];
     };
+    hosts = outputs.userConfig.hosts;
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
   # Configure network proxy if necessary

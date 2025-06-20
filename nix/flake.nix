@@ -2,7 +2,7 @@
   description = "Multi-system configuration with NixOS and Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # NixOS - 25.05
     nixpkgs-25-05.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager-25-05 = {
@@ -24,7 +24,7 @@
 
   outputs = {
     self,
-    nixpkgs,
+    nixpkgs-unstable,
     nixpkgs-25-05,
     home-manager-25-05,
     nixpkgs-24-11,
@@ -40,7 +40,7 @@
       config.allowUnfree = true;
     };
   in {
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter.${system} = pkgs-25-05.alejandra;
 
     userConfig = import ./config.nix;
     # NixOS 25.05

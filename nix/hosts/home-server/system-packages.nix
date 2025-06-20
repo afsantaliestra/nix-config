@@ -22,4 +22,5 @@
       models = "/var/lib/ollama/models";
     };
   };
+  virtualisation.docker.enable = true;
 }
