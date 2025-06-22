@@ -6,8 +6,8 @@
 }: {
   home = {
     stateVersion = "25.05";
-    username = outputs.userConfig.user.username;
-    homeDirectory = "/home/${outputs.userConfig.user.username}";
+    username = outputs.config.user.username;
+    homeDirectory = "/home/${outputs.config.user.username}";
 
     file = {};
     sessionVariables = {};
@@ -27,6 +27,7 @@
       zip
       unzip
       podman
+      jq
     ];
 
     enableNixpkgsReleaseCheck = false;

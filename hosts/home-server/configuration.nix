@@ -31,7 +31,7 @@
 
   networking = {
     # Define your hostname.
-    hostName = outputs.userConfig.hostname;
+    hostName = outputs.config.hostname;
     # Enable networking
     networkmanager.enable = true;
     # Firewall
@@ -43,7 +43,7 @@
         11434
       ];
     };
-    hosts = outputs.userConfig.hosts;
+    hosts = outputs.config.hosts;
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
   # Configure network proxy if necessary
@@ -108,7 +108,7 @@
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "${outputs.userConfig.user.username}";
+  services.displayManager.autoLogin.user = "${outputs.config.user.username}";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;

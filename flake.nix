@@ -42,7 +42,7 @@
   in {
     formatter.${system} = pkgs-25-05.alejandra;
 
-    userConfig = import ./config.nix;
+    config = import ./config.nix;
     # NixOS 25.05
     nixosConfigurations = {
       "nixos" = nixpkgs-25-05.lib.nixosSystem {
@@ -57,7 +57,7 @@
           {
             home-manager.useGlobalPkgs = false;
             home-manager.useUserPackages = false;
-            home-manager.users."${outputs.userConfig.user.username}" = import ./home/nixos.nix;
+            home-manager.users."${outputs.config.user.username}" = import ./home/nixos.nix;
             home-manager.extraSpecialArgs = {
               pkgs = pkgs-25-05;
               inherit inputs;

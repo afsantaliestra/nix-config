@@ -6,8 +6,8 @@
 }: {
   programs.git = {
     enable = true;
-    userName = outputs.userConfig.user.fullName;
-    userEmail = outputs.userConfig.user.email;
+    userName = outputs.config.user.fullName;
+    userEmail = outputs.config.user.email;
     extraConfig = {
       core = {
         editor = "nano";
