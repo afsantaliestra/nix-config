@@ -43,6 +43,7 @@
     formatter.${system} = pkgs-25-05.alejandra;
 
     config = import ./config.nix;
+
     # NixOS 25.05
     nixosConfigurations = {
       "nixos" = nixpkgs-25-05.lib.nixosSystem {
@@ -67,6 +68,7 @@
         ];
       };
     };
+
     # Non-NixOS with Home Manager 25.05
     homeConfigurations = {
       "debian" = home-manager-25-05.lib.homeManagerConfiguration {
@@ -80,6 +82,18 @@
         modules = [
           ./home/debian-wsl.nix
         ];
+      };
+    };
+
+    # Development Shells
+    devShells.${system} = {
+      default = pkgs-25-05.mkShell {
+        packages = with pkgs-25-05; [
+          gnumake
+          uv
+        ];
+
+        shellHook = builtins.readFile ./dev-shells/default-shell-hook.sh;
       };
     };
   };

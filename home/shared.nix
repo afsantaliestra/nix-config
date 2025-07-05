@@ -16,18 +16,19 @@
       neofetch
       git
       openssh
+      gnumake
       tree
       curl
       wget
       nano
-      uv
-      cookiecutter
       htop
-      gnumake
       zip
       unzip
-      podman
       jq
+      dig
+      # podman
+      cookiecutter
+      cruft
     ];
 
     enableNixpkgsReleaseCheck = false;

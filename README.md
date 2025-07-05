@@ -1,13 +1,15 @@
 # Nix Config
 
-This is my Nix Flakes with Home Manager configuration for Debian (WSL).
+This is my Nix Flakes with Home Manager configuration for NixOS and Debian (WSL).
 
-## Prerequisites
+## Debian WSL
+
+### Prerequisites
 
 - WSL2 enabled on Windows
 - Debian WSL installed: `wsl --install Debian`
 
-## Setup Debian WSL
+### Setup
 
 1. **Configure WSL settings** by editing `/etc/wsl.conf`:
 
@@ -78,3 +80,7 @@ sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 ```
 
 > **⚠️ Shell Restart Required**
+
+## NixOS
+
+## Development Shells
