@@ -16,7 +16,7 @@
     openssh.enable = true;
     ollama = {
       enable = true;
-      #acceleration = "rocm"; # "cuda" for Nvidia or "rocm" for AMD, remove for CPU-only
+      # acceleration = "rocm"; # "cuda" for Nvidia or "rocm" for AMD, remove for CPU-only
       host = "0.0.0.0";
       port = 11434;
       models = "/var/lib/ollama/models";
