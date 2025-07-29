@@ -42,7 +42,7 @@
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.xkb = {
     layout = "es";
-    variant = "nodeadkeys";
+    variant = "deadtilde";
   };
   console.keyMap = "es";
 
