@@ -1,5 +1,4 @@
 {
-  hostname = ""; # Required in NixOS
   user = {
     username = abort "config.nix -> 'user.username' unset";
     fullName = abort "config.nix -> 'user.fullName' unset";

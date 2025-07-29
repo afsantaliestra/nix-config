@@ -46,14 +46,16 @@
 
     # NixOS 25.05
     nixosConfigurations = {
-      "nixos" = nixpkgs-25-05.lib.nixosSystem {
+      "laia" = nixpkgs-25-05.lib.nixosSystem {
         inherit system;
+
         specialArgs = {
           inherit inputs;
           inherit outputs;
         };
+
         modules = [
-          ./hosts/home-server/configuration.nix
+          ./hosts/laia/configuration.nix
           home-manager-25-05.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = false;

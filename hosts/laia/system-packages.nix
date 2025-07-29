@@ -7,10 +7,10 @@
 }: {
   environment.systemPackages = with pkgs; [
     brave
-    ollama
+    discord
   ];
   programs = {
-    firefox.enable = true;
+    mtr.enable = true;
   };
   services = {
     openssh.enable = true;
