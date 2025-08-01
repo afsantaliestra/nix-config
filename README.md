@@ -75,4 +75,25 @@ sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 
 ## Development Shells
 
-**wip**
+In the folder of your project create a `.envrc` file with the following content:
+
+```text
+# Use from github directly
+use flake github:afsantaliestra/nix-config
+
+# Use from local
+use flake ~/nix-config
+```
+
+Then activate it inside the folder with (only the first time):
+
+```bash
+dienv allow
+```
+
+Environment shells:
+
+- default
+- python312
+- python313
+- python314

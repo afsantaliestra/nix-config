@@ -1,3 +1,5 @@
+.PHONY: setup unsetup fmt news clean debian laia
+
 setup:
 	git update-index --assume-unchanged ./config.nix
 

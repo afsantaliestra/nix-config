@@ -39,6 +39,12 @@
       inherit system;
       config.allowUnfree = true;
     };
+
+    mkPythonShell = pythonPkg:
+      import ./utils/python-shell.nix {
+        pkgs = pkgs-25-05;
+        inherit pythonPkg;
+      };
   in {
     formatter.${system} = pkgs-25-05.alejandra;
 
@@ -95,8 +101,12 @@
           uv
         ];
 
-        shellHook = builtins.readFile ./dev-shells/default-shell-hook.sh;
+        shellHook = builtins.readFile ./utils/shells/default-shell.sh;
       };
+
+      py312 = mkPythonShell pkgs-25-05.python312;
+      py313 = mkPythonShell pkgs-25-05.python313;
+      py314 = mkPythonShell pkgs-25-05.python314;
     };
   };
 }

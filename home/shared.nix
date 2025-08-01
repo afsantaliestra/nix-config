@@ -14,7 +14,6 @@
 
     packages = with pkgs; [
       neofetch
-      git
       openssh
       gnumake
       tree
@@ -31,22 +30,25 @@
       cruft
     ];
 
-    enableNixpkgsReleaseCheck = false;
+    # enableNixpkgsReleaseCheck = false;
   };
 
   programs = {
+    home-manager.enable = true;
+    ssh.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
       enableZshIntegration = true;
     };
-    home-manager.enable = true;
+    tmux = {
+      enable = true;
+      extraConfig = "set-option -g mouse on";
+    };
   };
 
   imports = [
     ./programs/git.nix
-    ./programs/ssh.nix
-    ./programs/tmux.nix
     ./programs/zsh.nix
   ];
 }
