@@ -9,6 +9,8 @@
     userName = outputs.config.user.fullName;
     userEmail = outputs.config.user.email;
     extraConfig = {
+      credential.helper = "store";
+      push.autoSetupRemote = true;
       core = {
         editor = "nano";
         sshCommand = "${pkgs.openssh}/bin/ssh";

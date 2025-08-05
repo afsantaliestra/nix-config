@@ -20,6 +20,7 @@
       curl
       wget
       nano
+      btop
       htop
       zip
       unzip

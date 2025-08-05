@@ -6,9 +6,6 @@
     "waderyan.gitblame",
     "shardulm94.trailing-spaces",
     "ms-vscode.makefile-tools",
-    "ms-vscode-remote.vscode-remote-extensionpack",
-    "anysphere.remote-containers",
-    "anysphere.remote-ssh",
-    "anysphere.remote-wsl"
+    "ms-vscode-remote.vscode-remote-extensionpack"
   ]
 }
