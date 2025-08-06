@@ -27,8 +27,8 @@
       jq
       dig
       # podman
-      cookiecutter
-      cruft
+      # ookiecutter
+      # ruft
     ];
 
     # enableNixpkgsReleaseCheck = false;

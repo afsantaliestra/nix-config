@@ -82,6 +82,8 @@
         11434
       ];
     };
-    hosts = outputs.config.hosts;
+    hosts = {
+      "127.0.0.1" = ["local.server"];
+    };
   };
 }
