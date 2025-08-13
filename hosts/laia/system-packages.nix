@@ -13,15 +13,15 @@
   ];
   programs = {
     mtr.enable = true;
+    nix-ld.enable = true;
   };
   services = {
-    openssh.enable = true;
-    ollama = {
+    openssh = {
       enable = true;
-      # acceleration = "rocm"; # "cuda" for Nvidia or "rocm" for AMD, remove for CPU-only
-      host = "0.0.0.0";
-      port = 11434;
-      models = "/var/lib/ollama/models";
+      settings = {
+        PermitRootLogin = "no";
+      };
+      openFirewall = true;
     };
   };
   virtualisation.docker.enable = true;
