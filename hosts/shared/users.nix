@@ -1,14 +1,13 @@
 {
   config,
   pkgs,
-  inputs,
-  outputs,
+  bundle,
   ...
 }: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${outputs.config.user.username}" = {
+  users.users."${bundle.config.user.username}" = {
     isNormalUser = true;
-    description = "${outputs.config.user.username}";
+    description = "${bundle.config.user.username}";
     extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; []; # Packages are managed with Home-Manager.
     shell = pkgs.zsh;

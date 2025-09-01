@@ -1,20 +1,11 @@
 {
   config,
   pkgs,
-  inputs,
-  outputs,
+  bundle,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    brave
-    discord
-    telegram-desktop
-    obsidian
-  ];
-  programs = {
-    mtr.enable = true;
-    nix-ld.enable = true;
-  };
+  environment.systemPackages = with pkgs; [];
+  programs = {};
   services = {
     openssh = {
       enable = true;
@@ -24,5 +15,4 @@
       openFirewall = true;
     };
   };
-  virtualisation.docker.enable = true;
 }

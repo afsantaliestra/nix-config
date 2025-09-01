@@ -1,12 +1,10 @@
 {
   config,
   pkgs,
-  inputs,
-  outputs,
+  bundle,
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     ./system-packages.nix
     ./users.nix
   ];
@@ -61,7 +59,7 @@
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "${outputs.config.user.username}";
+  services.displayManager.autoLogin.user = "${bundle.config.user.username}";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
@@ -69,8 +67,6 @@
 
   # Networking
   networking = {
-    # Define your hostname.
-    hostName = "laia";
     # Enable networking
     networkmanager.enable = true;
     # Firewall
@@ -85,4 +81,6 @@
       "127.0.0.1" = ["local.server"];
     };
   };
+
+  virtualisation.docker.enable = true;
 }
