@@ -1,7 +1,6 @@
 {
   pkgs,
-  inputs,
-  outputs,
+  bundle,
   ...
 }: {
   programs.zsh = {
@@ -17,7 +16,7 @@
         "history"
       ];
     };
-    shellAliases = import ./shell/aliases.nix;
-    initContent = builtins.readFile ./shell/init-content.sh;
+    shellAliases = import ./aliases.nix;
+    initContent = builtins.readFile ./init-content.sh;
   };
 }

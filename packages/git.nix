@@ -1,13 +1,12 @@
 {
   pkgs,
-  inputs,
-  outputs,
+  bundle,
   ...
 }: {
   programs.git = {
     enable = true;
-    userName = outputs.config.user.fullName;
-    userEmail = outputs.config.user.email;
+    userName = bundle.config.user.fullName;
+    userEmail = bundle.config.user.email;
     extraConfig = {
       credential.helper = "store";
       push.autoSetupRemote = true;

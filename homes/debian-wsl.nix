@@ -1,7 +1,6 @@
 {
   pkgs,
-  inputs,
-  outputs,
+  bundle,
   ...
 }: {
   imports = [

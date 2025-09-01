@@ -1,13 +1,14 @@
 {
   pkgs,
-  inputs,
-  outputs,
+  bundle,
   ...
-}: {
+}: let
+  config = bundle.config;
+in {
   home = {
     stateVersion = "25.05";
-    username = outputs.config.user.username;
-    homeDirectory = "/home/${outputs.config.user.username}";
+    username = config.user.username;
+    homeDirectory = "/home/${config.user.username}";
 
     file = {};
     sessionVariables = {};
@@ -49,7 +50,7 @@
   };
 
   imports = [
-    ./programs/git.nix
-    ./programs/zsh.nix
+    ../packages/git.nix
+    ../packages/zsh
   ];
 }
