@@ -16,5 +16,7 @@
     mtr.enable = true;
     nix-ld.enable = true;
   };
-  services = {};
+  services = {
+    tailscale.enable = true;
+  };
 }
