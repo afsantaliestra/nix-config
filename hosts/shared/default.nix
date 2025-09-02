@@ -65,22 +65,5 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Networking
-  networking = {
-    # Enable networking
-    networkmanager.enable = true;
-    # Firewall
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [
-        80
-        11434
-      ];
-    };
-    hosts = {
-      "127.0.0.1" = ["local.server"];
-    };
-  };
-
   virtualisation.docker.enable = true;
 }

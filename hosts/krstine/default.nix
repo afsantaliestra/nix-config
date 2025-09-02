@@ -15,5 +15,11 @@
   networking = {
     # Define your hostname.
     hostName = "kristine";
+    # Enable networking
+    networkmanager.enable = true;
+    # Firewall
+    firewall = {
+      enable = true;
+    };
   };
 }

@@ -9,6 +9,8 @@
     discord
     telegram-desktop
     obsidian
+    moonlight-qt
+    sunshine
   ];
   programs = {
     mtr.enable = true;

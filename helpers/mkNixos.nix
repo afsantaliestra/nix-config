@@ -9,11 +9,9 @@
     home-manager.extraSpecialArgs = {
       inherit bundle;
     };
-    home-manager.users.${bundle.config.user.username}.imports =
-      [
-        ../homes/nixos.nix
-      ]
-      ++ homeExtraModules;
+    home-manager.users.${bundle.config.user.username}.imports = [
+      ../homes/nixos.nix
+    ];
   };
 in {
   mkNixos = hostName: nixosExtraModules: homeExtraModules: {
@@ -24,12 +22,11 @@ in {
         inherit bundle;
       };
 
-      modules =
-        [
-          ../hosts/${hostName}
-          (homeManagerCfg false [] ++ homeExtraModules)
-        ]
-        ++ nixosExtraModules;
+      modules = [
+        ../hosts/${hostName}
+        home-manager-pkg.nixosModules.home-manager
+        (homeManagerCfg [])
+      ];
     };
   };
 }
