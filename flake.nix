@@ -26,6 +26,10 @@
         system = bundle.system;
         config.allowUnfree = true;
       };
+      pkgs-unstable = import nixpkgs-unstable {
+        system = bundle.system;
+        config.allowUnfree = true;
+      };
       config = import ./config.nix;
     };
 

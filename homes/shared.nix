@@ -27,9 +27,6 @@ in {
       unzip
       jq
       dig
-      # podman
-      # ookiecutter
-      # ruft
     ];
 
     # enableNixpkgsReleaseCheck = false;

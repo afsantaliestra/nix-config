@@ -14,7 +14,7 @@
   ## DOCKER - Visualice
   dcks = "docker ps; echo ''; docker images; echo ''; docker volume ls; echo ''; docker network ls";
   dcksc = "docker ps";
-  dckscm = "docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}'";
+  dckscm = "docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'";
   dcksi = "docker images";
   dcksv = "docker volume ls";
   dcksn = "docker network ls";

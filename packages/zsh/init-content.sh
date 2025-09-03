@@ -20,6 +20,6 @@ function dcknets() {
 clear
 neofetch
 echo "=== Docker Containers        ==="
-docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
+docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"
 echo "=== End of Docker Containers ==="
 eval "$(direnv hook zsh)"

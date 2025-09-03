@@ -22,8 +22,7 @@ in {
         listen-address = serviceConfigs.dnsmasq.listenAddress;
         bind-interfaces = true;
         server = serviceConfigs.dnsmasq.dnsServers;
-        local = "/${serviceConfigs.dnsmasq.domain}/";
-        host-record = serviceConfigs.dnsmasq.hostRecords;
+        address = serviceConfigs.dnsmasq.address;
       };
     };
   };
