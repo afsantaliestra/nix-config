@@ -65,5 +65,9 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  # Networking hosts
+  networking.hosts = bundle.config.hosts;
+
+  # Virtualization Docker
   virtualisation.docker.enable = true;
 }

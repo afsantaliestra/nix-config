@@ -4,6 +4,7 @@
     fullName = "";
     email = "";
   };
+  hosts = {};
   services = {
     dnsmasq = {
       listenAddress = ["127.0.0.1"];
