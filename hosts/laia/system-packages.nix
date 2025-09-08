@@ -21,6 +21,9 @@ in {
       settings = {
         listen-address = serviceConfigs.dnsmasq.listenAddress;
         bind-interfaces = true;
+        domain-needed = true;
+        bogus-priv = true;
+        stop-dns-rebind = true;
         server = serviceConfigs.dnsmasq.dnsServers;
         address = serviceConfigs.dnsmasq.address;
       };

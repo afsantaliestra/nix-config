@@ -1,7 +1,7 @@
 {bundle}: {
-  mkShell = shellName: {
+  mkShell = shellName: extraPackages: {
     devShells.${bundle.system}.${shellName} = bundle.pkgs.mkShell {
-      packages = [];
+      packages = [] ++ extraPackages;
 
       shellHook = builtins.readFile ./hooks/${shellName}.sh;
     };

@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # 25.05
     nixpkgs-25-05.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager-25-05 = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -41,7 +40,8 @@
       (mkNixos "laia" [] [])
       (mkNixos "kristine" [] [])
       (mkHome "debian" [])
-      (mkShell "nix-config")
+      (mkShell "nix-config" [])
+      (mkShell "uv-env" [bundle.pkgs.uv])
       (mkPythonShell "py312" bundle.pkgs.python312)
       (mkPythonShell "py313" bundle.pkgs.python313)
       (mkPythonShell "py314" bundle.pkgs.python314)

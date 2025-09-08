@@ -1,3 +1,5 @@
+.DEFAULT_GOAL = laia
+
 .PHONY: setup unsetup fmt news clean debian laia
 
 setup:
