@@ -43,7 +43,7 @@ mkdir -p ~/.config/nix && echo "experimental-features = nix-command flakes" >> ~
 nix-shell -p git --run "git clone https://github.com/afsantaliestra/nix-config" && cd nix-config
 ```
 
-6. **Configure your personal details** by editing `nix/config.nix`:
+6. **Configure your personal details** by editing `./config.nix`:
 
 ```nix
 {

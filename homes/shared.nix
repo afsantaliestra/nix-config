@@ -28,8 +28,6 @@ in {
       jq
       dig
     ];
-
-    # enableNixpkgsReleaseCheck = false;
   };
 
   programs = {
