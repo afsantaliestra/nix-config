@@ -6,7 +6,9 @@
 }: let
   serviceConfigs = bundle.config.services;
 in {
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    sunshine
+  ];
   programs = {};
   services = {
     openssh = {

@@ -10,13 +10,9 @@
     ../shared
   ];
 
-  # Networking
   networking = {
-    # Define your hostname.
     hostName = "laia";
-    # Enable networking
     networkmanager.enable = true;
-    # Firewall
     firewall = {
       enable = true;
       allowedTCPPorts = [

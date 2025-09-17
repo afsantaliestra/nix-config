@@ -14,33 +14,39 @@
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "es_ES.UTF-8";
-    LC_IDENTIFICATION = "es_ES.UTF-8";
-    LC_MEASUREMENT = "es_ES.UTF-8";
-    LC_MONETARY = "es_ES.UTF-8";
-    LC_NAME = "es_ES.UTF-8";
-    LC_NUMERIC = "es_ES.UTF-8";
-    LC_PAPER = "es_ES.UTF-8";
-    LC_TELEPHONE = "es_ES.UTF-8";
-    LC_TIME = "es_ES.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "es_ES.UTF-8";
+      LC_IDENTIFICATION = "es_ES.UTF-8";
+      LC_MEASUREMENT = "es_ES.UTF-8";
+      LC_MONETARY = "es_ES.UTF-8";
+      LC_NAME = "es_ES.UTF-8";
+      LC_NUMERIC = "es_ES.UTF-8";
+      LC_PAPER = "es_ES.UTF-8";
+      LC_TELEPHONE = "es_ES.UTF-8";
+      LC_TIME = "es_ES.UTF-8";
+    };
   };
 
   # Enable the X11 windowing system, GNOME Desktop Environment and keyboard.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.xkb = {
-    layout = "es";
-    variant = "deadtilde";
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    xkb = {
+      layout = "es";
+      variant = "deadtilde";
+    };
   };
   console.keyMap = "es";
 
@@ -57,15 +63,6 @@
     pulse.enable = true;
   };
 
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "${bundle.config.user.username}";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  # Networking hosts
   networking.hosts = bundle.config.hosts;
 
   # Virtualization Docker

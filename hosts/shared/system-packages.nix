@@ -9,7 +9,6 @@
       brave
       discord
       moonlight-qt
-      sunshine
     ]
     ++ [
       bundle.pkgs-unstable.telegram-desktop
