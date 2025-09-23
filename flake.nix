@@ -30,6 +30,7 @@
         config.allowUnfree = true;
       };
       config = import ./config.nix;
+      hostName = "";
     };
 
     inherit (import ./shells {inherit bundle;}) mkShell mkPythonShell;

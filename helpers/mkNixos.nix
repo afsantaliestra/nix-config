@@ -15,6 +15,8 @@
   };
 in {
   mkNixos = hostName: nixosExtraModules: homeExtraModules: {
+    bundle.hostName = hostName;
+
     nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
       system = bundle.system;
 

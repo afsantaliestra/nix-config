@@ -1,37 +1,10 @@
-.DEFAULT_GOAL = laia
+MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
+include $(wildcard $(MAKEFILE_DIR)makefiles/*.mk)
 
-.PHONY: setup unsetup fmt news clean debian laia
+.PHONY: setup unsetup
 
 setup:
 	git update-index --assume-unchanged ./config.nix
 
 unsetup:
 	git update-index --no-assume-unchanged ./config.nix
-
-fmt:
-	nix fmt ./
-
-news:
-	@echo "\e[44m## Nix Home Manager News ###\e[0m"
-	home-manager switch news --flake ./#debian
-
-clean:
-	@echo "\e[44m## Nix Collect Garbage older than 30d ###\e[0m"
-	nix-collect-garbage -d --delete-older-than 30d
-
-debian: fmt
-	@echo "\e[44m## Nix Home Manager Switch ###\e[0m"
-	home-manager switch --flake ./#debian
-
-laia: fmt
-	@echo "\e[44m### NixOS Rebuild ###\e[0m"
-	sudo nixos-rebuild switch --flake .#laia
-
-# CONTAINERS
-cont-restart: cont-stop cont-start
-
-cont-start:
-	sudo nixos-container start dev-env
-
-cont-stop:
-	sudo nixos-container stop dev-env

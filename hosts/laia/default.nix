@@ -12,7 +12,7 @@
   ];
 
   networking = {
-    hostName = "laia";
+    hostName = bundle.hostName;
     networkmanager.enable = true;
     firewall = {
       enable = true;

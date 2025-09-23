@@ -29,6 +29,7 @@ in {
       dig
       ctop
       lazydocker
+      dive
     ];
   };
 
