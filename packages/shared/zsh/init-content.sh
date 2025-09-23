@@ -7,11 +7,11 @@ function dckrl() {
 }
 
 function dckclsc() {
-    docker rm -f $(docker ps -a --format "{{.ID}} {{.Names}}" | awk '{if ($2 !~ /python|mongo|postgres/) print $1}')
+    docker rm -f $(docker ps -a --format "{{.ID}} {{.Names}}" | awk '{if ($2 !~ /python/) print $1}')
 }
 
 function dckclsi() {
-    docker rmi -f $(docker images -a --format "{{.ID}} {{.Repository}}" | awk '{if ($2 !~ /python|mongo|postgres/) print $1}')
+    docker rmi -f $(docker images -a --format "{{.ID}} {{.Repository}}" | awk '{if ($2 !~ /python/) print $1}')
 }
 
 function dcknets() {

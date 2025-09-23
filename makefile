@@ -19,10 +19,19 @@ clean:
 	@echo "\e[44m## Nix Collect Garbage older than 30d ###\e[0m"
 	nix-collect-garbage -d --delete-older-than 30d
 
-debian:
+debian: fmt
 	@echo "\e[44m## Nix Home Manager Switch ###\e[0m"
 	home-manager switch --flake ./#debian
 
-laia:
+laia: fmt
 	@echo "\e[44m### NixOS Rebuild ###\e[0m"
 	sudo nixos-rebuild switch --flake .#laia
+
+# CONTAINERS
+cont-restart: cont-stop cont-start
+
+cont-start:
+	sudo nixos-container start dev-env
+
+cont-stop:
+	sudo nixos-container stop dev-env

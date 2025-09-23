@@ -66,5 +66,17 @@
   networking.hosts = bundle.config.hosts;
 
   # Virtualization Docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+    };
+    daemon.settings = {
+      registry-mirrors = [
+        "https://mirror.gcr.io"
+        "https://registry.docker-cn.com"
+      ];
+    };
+  };
 }

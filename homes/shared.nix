@@ -27,6 +27,8 @@ in {
       unzip
       jq
       dig
+      ctop
+      lazydocker
     ];
   };
 
@@ -45,7 +47,7 @@ in {
   };
 
   imports = [
-    ../packages/git.nix
-    ../packages/zsh
+    ../packages/home-manager/zsh
+    ../packages/shared/git.nix
   ];
 }
