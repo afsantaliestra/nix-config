@@ -2,12 +2,14 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }: let
   configs = import ../../config.nix;
 in {
   environment.systemPackages = with pkgs; [
     sunshine
+    claude-code
   ];
 
   programs = {
@@ -41,6 +43,21 @@ in {
         server = configs.services.dnsmasq.dnsServers;
         address = configs.services.dnsmasq.address;
       };
+    };
+  };
+
+  containers = {
+    dev-env = {
+      autoStart = true;
+      privateNetwork = true;
+      hostAddress = "192.168.100.10";
+      localAddress = "192.168.100.11";
+      config = {
+        config,
+        pkgs,
+        ...
+      }:
+        import ../_containers/dev {inherit config pkgs inputs;};
     };
   };
 }

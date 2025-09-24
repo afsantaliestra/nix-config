@@ -3,29 +3,27 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-25-05.url = "github:nixos/nixpkgs/nixos-25.05";
-    home-manager-25-05 = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs-25-05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = {
     self,
     nixpkgs-unstable,
-    nixpkgs-25-05,
-    home-manager-25-05,
+    nixpkgs,
+    home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs-25-05 {
+    pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
     lib = import ./_libs {
-      inherit pkgs;
-      nixpkgs = nixpkgs-25-05;
-      home-manager = home-manager-25-05;
+      inherit inputs pkgs;
     };
     inherit (lib) mkMerge mkHome mkNixos mkShell;
   in

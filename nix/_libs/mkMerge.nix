@@ -1,5 +1,5 @@
-{nixpkgs, ...}: {
-  mkMerge = nixpkgs.lib.lists.foldl' (
-    a: b: nixpkgs.lib.attrsets.recursiveUpdate a b
+{inputs, ...}: {
+  mkMerge = inputs.nixpkgs.lib.lists.foldl' (
+    a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
   ) {};
 }

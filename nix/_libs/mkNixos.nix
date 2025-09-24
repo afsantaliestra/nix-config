@@ -1,9 +1,4 @@
-{
-  nixpkgs,
-  pkgs,
-  home-manager,
-  ...
-}: let
+{inputs, ...}: let
   homeManagerCfg = args @ {
     username,
     homeExtraModules ? [],
@@ -26,14 +21,16 @@ in {
     homeExtraModules ? [],
     ...
   }: {
-    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
       inherit system;
 
-      specialArgs = {};
+      specialArgs = {
+        inherit inputs;
+      };
 
       modules = [
         ../hosts/${hostname}
-        home-manager.nixosModules.home-manager
+        inputs.home-manager.nixosModules.home-manager
         (homeManagerCfg {
           homeExtraModules = homeExtraModules;
           username = username;

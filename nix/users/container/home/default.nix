@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home = {
     stateVersion = "25.05";
     username = "container";
@@ -6,6 +10,6 @@
   };
 
   imports = [
-    ../_common
+    ../../_common
   ];
 }

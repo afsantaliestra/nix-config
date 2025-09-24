@@ -1,10 +1,10 @@
 {
   pkgs,
-  home-manager,
+  inputs,
   ...
 }: {
   mkHome = homeName: homeExtraModules: {
-    homeConfigurations.${homeName} = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.${homeName} = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
       extraSpecialArgs = {};

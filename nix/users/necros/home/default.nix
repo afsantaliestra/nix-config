@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home = {
     stateVersion = "25.05";
     username = "necros";
@@ -6,7 +10,6 @@
   };
 
   imports = [
-    ./packages.nix
     ../../_common
   ];
 }
