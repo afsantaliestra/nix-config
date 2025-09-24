@@ -1,10 +1,10 @@
 fmt:
 	@$(call pinfo,Formatting Nix code with Alejandra Style)
-	nix fmt ./
+	cd nix; nix fmt ./
 
 news:
 	@$(call pinfo,Nix Home Manager News)
-	home-manager switch news --flake ./#debian
+	home-manager switch news --flake ./nix#debian
 
 clean:
 	@$(call pinfo,Nix Collect Garbage older than 30d)
@@ -12,11 +12,15 @@ clean:
 
 debian: fmt
 	@$(call pinfo,Nix Home Manager Switch (Debian))
-	home-manager switch --flake ./#debian
+	home-manager switch --flake ./nix#debian
 
 laia: fmt
-	@$(call pinfo,NixOS Rebuild - Host: laia)
-	sudo nixos-rebuild switch --flake .#laia --show-trace
+	@$(call pinfo,NixOS Rebuild Switch - Host: laia)
+	sudo nixos-rebuild switch --flake ./nix#laia
+
+kristine: fmt
+	@$(call pinfo,NixOS Rebuild Switch - Host: laia)
+	sudo nixos-rebuild switch --flake ./nix#kristine
 
 # CONTAINERS
 cont-restart: cont-stop cont-start

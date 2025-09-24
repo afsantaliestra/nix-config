@@ -4,7 +4,7 @@ include $(wildcard $(MAKEFILE_DIR)makefiles/*.mk)
 .PHONY: setup unsetup
 
 setup:
-	git update-index --assume-unchanged ./config.nix
+	git update-index --assume-unchanged ./nix/config.nix
 
 unsetup:
-	git update-index --no-assume-unchanged ./config.nix
+	git update-index --no-assume-unchanged ./nix/config.nix
