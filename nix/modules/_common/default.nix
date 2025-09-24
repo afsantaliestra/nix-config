@@ -4,9 +4,18 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [];
 
-  programs = {};
+  programs = {
+    mtr.enable = true;
+    firefox.enable = true;
+  };
 
-  services = {};
+  services = {
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "server";
+      openFirewall = true;
+    };
+  };
 
   virtualisation = {
     docker = {

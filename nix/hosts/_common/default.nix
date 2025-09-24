@@ -7,7 +7,6 @@
   configs = import ../../config.nix;
 in {
   imports = [
-    ./packages.nix
     ../../modules/_common
     ../../users/necros
   ];
