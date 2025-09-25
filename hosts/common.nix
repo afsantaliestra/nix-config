@@ -4,11 +4,11 @@
   lib,
   ...
 }: let
-  configs = import ../../config.nix;
+  configs = import ../config.nix;
 in {
   imports = [
-    ../../modules/_common
-    ../../users/necros
+    ./_modules/general
+    ../users/necros
   ];
 
   system.stateVersion = "25.05";

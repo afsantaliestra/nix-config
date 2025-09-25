@@ -9,7 +9,7 @@
     home-manager.backupFileExtension = "bak";
     home-manager.extraSpecialArgs = {};
     home-manager.users.${username}.imports = [
-      ../users/${username}/home/desktop.nix
+      ../users/${username}/homes/desktop
     ];
   };
 in {

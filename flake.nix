@@ -22,10 +22,10 @@
       inherit system;
       config.allowUnfree = true;
     };
-    lib = import ./_libs {
+    helpers = import ./helpers {
       inherit inputs pkgs;
     };
-    inherit (lib) mkMerge mkHome mkNixos mkShell;
+    inherit (helpers) mkMerge mkHome mkNixos mkShell;
   in
     mkMerge [
       {formatter.${system} = pkgs.alejandra;}

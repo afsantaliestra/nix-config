@@ -5,9 +5,5 @@
 
   services = {};
 
-  virtualisation = {
-    containers = {
-      enable = true;
-    };
-  };
+  virtualisation = {};
 }

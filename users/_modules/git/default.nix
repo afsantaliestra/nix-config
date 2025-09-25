@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  configs = import ../../config.nix;
+  configs = import ../../../config.nix;
 in {
   programs.git = {
     enable = true;

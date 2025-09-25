@@ -23,6 +23,6 @@
   };
 
   imports = [
-    ./default.nix
+    ../headless
   ];
 }

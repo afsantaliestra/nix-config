@@ -7,10 +7,10 @@
   imports = [
     ./hardware-configuration.nix
     ./packages.nix
-    ../_common
-    ../../modules/desktop
-    ../../modules/development
-    ../../modules/server
+    ../common.nix
+    ../_modules/desktop
+    ../_modules/development
+    ../_modules/server
   ];
 
   networking = {

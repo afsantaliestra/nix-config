@@ -1,5 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home = {
+    stateVersion = "25.05";
+    username = "necros";
+    homeDirectory = "/home/necros";
+
     file = {};
     sessionVariables = {};
 
@@ -45,7 +53,6 @@
   };
 
   imports = [
-    ../../homes/zsh
-    ../../homes/git
+    ../../../_modules
   ];
 }
