@@ -31,7 +31,7 @@
       {formatter.${system} = pkgs.alejandra;}
       (mkNixos {hostname = "laia";})
       (mkNixos {hostname = "anne";})
-      (mkHome "debian" [])
+      (mkHome {homename = "debian";})
       (mkShell {shell-name = "nix-config";})
       (mkShell {
         shell-name = "uv-env";

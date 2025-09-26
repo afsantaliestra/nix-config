@@ -3,15 +3,20 @@
   inputs,
   ...
 }: {
-  mkHome = homeName: homeExtraModules: {
-    homeConfigurations.${homeName} = inputs.home-manager.lib.homeManagerConfiguration {
+  mkHome = args @ {
+    homename,
+    username ? "necros",
+    homeExtraModules ? [],
+    ...
+  }: {
+    homeConfigurations.${homename} = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
       extraSpecialArgs = {};
 
       modules =
         [
-          ../homes/debian-wsl.nix
+          ../users/${username}/homes/headless
         ]
         ++ homeExtraModules;
     };
