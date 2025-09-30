@@ -21,6 +21,7 @@ in {
       enable = true;
       settings = {
         PermitRootLogin = "no";
+        AllowUsers = ["necros"];
       };
       openFirewall = true;
     };

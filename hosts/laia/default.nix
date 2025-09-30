@@ -31,10 +31,12 @@
         iptables -A FORWARD -o ve-+ -j ACCEPT
       '';
     };
-    nat = {
-      enable = true;
-      internalInterfaces = ["ve-+"];
-      externalInterface = "wlp4s0";
-    };
   };
+
+  # Prevents suspension system-wide.
+  services.logind.extraConfig = ''
+    HandleSuspendKey=ignore
+    HandleLidSwitch=ignore
+    IdleAction=ignore
+  '';
 }

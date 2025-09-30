@@ -11,7 +11,9 @@
     obs-studio
   ];
 
-  programs = {};
+  programs = {
+    firefox.enable = true;
+  };
 
   services = {};
 }

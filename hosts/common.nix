@@ -8,7 +8,6 @@
 in {
   imports = [
     ./_modules/general
-    ../users/necros
   ];
 
   system.stateVersion = "25.05";

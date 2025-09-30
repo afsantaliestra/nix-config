@@ -4,7 +4,6 @@
   ...
 }: {
   home = {
-    stateVersion = "25.05";
     username = "necros";
     homeDirectory = "/home/necros";
 
@@ -13,20 +12,8 @@
 
     packages = with pkgs; [
       uv
-      neofetch
-      zip
-      unzip
-      gnumake
-      gcc
-      tree
-      curl
-      wget
-      nano
-      btop
-      htop
       jq
       yq
-      nano
       vim
       dig
       dive
@@ -36,7 +23,6 @@
   };
 
   programs = {
-    home-manager.enable = true;
     nix-index = {
       enable = true;
       enableZshIntegration = true;
@@ -53,6 +39,7 @@
   };
 
   imports = [
-    ../../../_modules
+    ../../../_common/homes/headless
+    ../../../_modules/git
   ];
 }

@@ -14,12 +14,12 @@ clean:
 
 debian: fmt
 	@$(call pinfo,Nix Home Manager Switch (Debian))
-	home-manager switch --flake ./#debian
+	home-manager switch --flake ./#debian $(RUN_ARGS)
 
 laia: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: laia)
-	sudo nixos-rebuild switch --flake ./#laia
+	sudo nixos-rebuild switch --flake ./#laia $(RUN_ARGS)
 
 anne: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: Anne)
-	sudo nixos-rebuild switch --flake ./#anne
+	sudo nixos-rebuild switch --flake ./#anne $(RUN_ARGS)

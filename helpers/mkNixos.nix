@@ -1,26 +1,29 @@
-{inputs, ...}: let
-  homeManagerCfg = args @ {
-    username,
-    homeExtraModules ? [],
-    ...
-  }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  homeManagerCfg = users: {
     home-manager.useGlobalPkgs = false;
     home-manager.useUserPackages = false;
     home-manager.backupFileExtension = "bak";
     home-manager.extraSpecialArgs = {};
-    home-manager.users.${username}.imports = [
-      ../users/${username}/homes/desktop
-    ];
+    home-manager.users = pkgs.lib.genAttrs users (username: {
+      imports = [
+        ../users/${username}/homes/desktop
+      ];
+    });
   };
 in {
   mkNixos = args @ {
     hostname,
-    username ? "necros",
     system ? "x86_64-linux",
-    nixosExtraModules ? [],
-    homeExtraModules ? [],
+    hostModules ? [],
+    extraUsers ? [],
     ...
-  }: {
+  }: let
+    users = ["necros"] ++ extraUsers;
+  in {
     nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
       inherit system;
 
@@ -28,14 +31,14 @@ in {
         inherit inputs;
       };
 
-      modules = [
-        ../hosts/${hostname}
-        inputs.home-manager.nixosModules.home-manager
-        (homeManagerCfg {
-          homeExtraModules = homeExtraModules;
-          username = username;
-        })
-      ];
+      modules =
+        [
+          ../hosts/${hostname}
+          inputs.home-manager.nixosModules.home-manager
+          (homeManagerCfg users)
+        ]
+        ++ (map (username: ../users/${username}) users)
+        ++ hostModules;
     };
   };
 }

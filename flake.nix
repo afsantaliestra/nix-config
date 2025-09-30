@@ -29,7 +29,10 @@
   in
     mkMerge [
       {formatter.${system} = pkgs.alejandra;}
-      (mkNixos {hostname = "laia";})
+      (mkNixos {
+        hostname = "laia";
+        extraUsers = ["casa"];
+      })
       (mkNixos {hostname = "anne";})
       (mkHome {homename = "debian";})
       (mkShell {shell-name = "nix-config";})
