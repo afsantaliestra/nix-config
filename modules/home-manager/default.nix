@@ -30,6 +30,7 @@
       ctop
       lazydocker
       alejandra
+      unstable.claude-code
     ];
   };
 

@@ -13,3 +13,8 @@ fmt:
 wsl: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: wsl)
 	sudo nixos-rebuild switch --flake ./#wsl
+
+.PHONY: debian
+debian: fmt
+	@$(call pinfo,Home Manager Switch - Profile: debian)
+	home-manager switch --flake ./#debian

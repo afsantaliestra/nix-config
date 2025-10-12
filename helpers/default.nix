@@ -1,9 +1,16 @@
 {
   self,
-  defaultUser,
+  defaultUser ? "necros",
+  system ? "x86_64-linux",
   ...
 }: let
   overlays = import "${self}/overlays" {inherit self;};
+
+  pkgs = import self.inputs.nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+    overlays = [overlays.pkgs-unstable-overlay];
+  };
 
   mkNixosHomeManagerHome = {username}: {
     config,
@@ -48,15 +55,8 @@ in {
   mkNixos = {
     hostname,
     extraUsers ? [],
-    system ? "x86_64-linux",
   }: let
     users = [defaultUser] ++ extraUsers;
-
-    pkgs = import self.inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [overlays.pkgs-unstable-overlay];
-    };
   in
     self.inputs.nixpkgs.lib.nixosSystem {
       inherit system pkgs;
@@ -69,4 +69,15 @@ in {
         (mkNixosConfiguration {inherit hostname users;})
       ];
     };
+
+  mkHomeManager = self.inputs.home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+
+    extraSpecialArgs = {};
+
+    modules = [
+      self.outputs.homeManagerModules.default
+      "${self}/users/${defaultUser}/home.nix"
+    ];
+  };
 }

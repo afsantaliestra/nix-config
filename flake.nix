@@ -15,9 +15,8 @@
     nixos-wsl,
     ...
   }: let
-    defaultUser = "necros";
     helpers = import ./helpers {
-      inherit self defaultUser;
+      inherit self;
     };
   in {
     nixosModules.default = import ./modules/nixos;
@@ -28,6 +27,10 @@
         hostname = "wsl";
         extraUsers = [];
       };
+    };
+
+    homeConfigurations = {
+      debian = helpers.mkHomeManager;
     };
   };
 }
