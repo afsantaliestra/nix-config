@@ -56,5 +56,6 @@
     ./options.nix
     ./git
     ./zsh
+    ./desktop.nix
   ];
 }

@@ -25,7 +25,9 @@
     nixosConfigurations = {
       wsl = helpers.mkNixos {
         hostname = "wsl";
-        extraUsers = [];
+      };
+      laia = helpers.mkNixos {
+        hostname = "laia";
       };
     };
 

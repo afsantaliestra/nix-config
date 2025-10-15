@@ -12,25 +12,32 @@
     overlays = [overlays.pkgs-unstable-overlay];
   };
 
-  mkNixosHomeManagerHome = {username}: {
+  mkNixosHomeManagerHome = {
+    hostname,
+    username,
+  }: {
     config,
     pkgs,
     ...
   }: {
     imports = [
       (self.outputs.homeManagerModules.default)
+      "${self}/hosts/${hostname}/home.nix"
       "${self}/users/${username}/home.nix"
     ];
   };
 
-  mkNixosHomeManager = {users}: {pkgs, ...}: {
+  mkNixosHomeManager = {
+    hostname,
+    users,
+  }: {pkgs, ...}: {
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "backup";
       extraSpecialArgs = {};
       sharedModules = [];
-      users = pkgs.lib.genAttrs users (username: mkNixosHomeManagerHome {inherit username;});
+      users = pkgs.lib.genAttrs users (username: mkNixosHomeManagerHome {inherit hostname username;});
     };
   };
 
@@ -47,7 +54,7 @@
       [
         self.outputs.nixosModules.default
         self.inputs.nixos-wsl.nixosModules.default
-        "${self}/hosts/${hostname}"
+        "${self}/hosts/${hostname}/nixos.nix"
       ]
       ++ (map (username: "${self}/users/${username}/nixos.nix") users);
   };
@@ -65,7 +72,7 @@ in {
 
       modules = [
         self.inputs.home-manager.nixosModules.home-manager
-        (mkNixosHomeManager {inherit users;})
+        (mkNixosHomeManager {inherit hostname users;})
         (mkNixosConfiguration {inherit hostname users;})
       ];
     };

@@ -12,11 +12,16 @@ in {
   };
 
   programs = {
+    mtr.enable = true;
     nix-ld.enable = cfgSystem.enableNixLd;
   };
 
   imports = [
     ./options.nix
+    ./common.nix
+    ./desktop.nix
     ./wsl.nix
+    ./remote.nix
+    ./virtualization.nix
   ];
 }

@@ -8,7 +8,8 @@ My NixOS configuration using Nix flakes.
 
 | Host   | System       | Version | Description                              |
 | ------ | ------------ | ------- | ---------------------------------------- |
-| wsl    | NixOS        | 25.05   | Full NixOS configuration for WSL 2       |
+| laia   | NixOS        | 25.05   | NixOS configuration for my home server   |
+| wsl    | NixOS        | 25.05   | NixOS configuration for WSL 2            |
 | debian | Home Manager | 25.05   | Home Manager standalone on Debian/Ubuntu |
 
 ## Project Structure
@@ -88,6 +89,11 @@ My NixOS configuration using Nix flakes.
 
 ### Updating Configuration
 
+**NixOS laia:**
+```shell
+cd ~/nix-config && sudo nixos-rebuild switch --flake ./#laia
+```
+
 **NixOS WSL:**
 ```shell
 cd ~/nix-config && sudo nixos-rebuild switch --flake ./#wsl
@@ -100,7 +106,9 @@ cd ~/nix-config && home-manager switch --flake ./#debian
 
 ### Makefile Commands
 
+- `make` - Format and rebuild based on hostname
 - `make fmt` - Format Nix code with Alejandra
+- `make laia` - Format and rebuild NixOS
 - `make wsl` - Format and rebuild NixOS WSL
 - `make debian` - Format and rebuild Home Manager
 

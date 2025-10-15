@@ -9,5 +9,9 @@ in {
   home = {
     username = cfgUser.username;
     homeDirectory = "/home/${cfgUser.username}";
+
+    sessionPath = [
+      "/home/${cfgUser.username}/.local/bin"
+    ];
   };
 }

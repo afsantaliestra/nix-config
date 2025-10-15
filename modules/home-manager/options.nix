@@ -25,5 +25,6 @@
         User email.
       '';
     };
+    hasDesktop = lib.mkEnableOption "System has desktop or not.";
   };
 }
