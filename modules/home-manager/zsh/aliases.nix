@@ -11,6 +11,7 @@
   dckcls = "dckclsc; echo ''; dckclsi; echo ''; dckclsv; echo ''; dckclsn";
   dckclscp = "docker rm -f $(docker ps -a)";
   dckclsp = "docker rm -f $(docker ps -aq); echo ''; docker rmi -f $(docker images -q); echo ''; docker volume prune -af; echo ''; docker network rm $(docker network ls -q); echo ''; docker builder prune -af";
+  dckclss = "docker rm -f $(docker ps -aq); echo ''; docker volume prune -af; echo ''; docker network rm $(docker network ls -q)";
   ## DOCKER - Visualice
   dcks = "docker ps; echo ''; docker images; echo ''; docker volume ls; echo ''; docker network ls";
   dcksc = "docker ps";
