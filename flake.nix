@@ -29,6 +29,9 @@
       laia = helpers.mkNixos {
         hostname = "laia";
       };
+      lindsey = helpers.mkNixos {
+        hostname = "lindsey";
+      };
     };
 
     homeConfigurations = {
