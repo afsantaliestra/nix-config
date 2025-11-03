@@ -16,12 +16,14 @@ in {
     nix-ld.enable = cfgSystem.enableNixLd;
   };
 
+  # Enable CUPS to print documents. Web interface: http://localhost:631
+  # printing.enable = true;
+
   imports = [
     ./options.nix
     ./common.nix
     ./desktop.nix
     ./wsl.nix
-    ./remote.nix
     ./virtualization.nix
   ];
 }
