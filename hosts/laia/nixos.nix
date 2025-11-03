@@ -1,4 +1,10 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: let
+  cfgSystem = config.system;
+in {
   system = {
     enableNixLd = true;
     enableContainers = true;
