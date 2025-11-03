@@ -1,7 +1,6 @@
 {config, ...}: {
   system = {
     enableNixLd = true;
-    enableRemote = true;
     enableContainers = true;
     hasDesktop = true;
   };
