@@ -1,7 +1,6 @@
 {config, ...}: {
   system = {
     enableNixLd = true;
-    enableRemote = true;
     enableContainers = true;
     hasDesktop = true;
   };
@@ -11,14 +10,23 @@
     efi.canTouchEfiVariables = true;
   };
 
+  networking = {
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedUDPPorts = [
+        41641 # Tailscale WireGuard
+      ];
+      allowPing = false;
+    };
+  };
+
   services = {
     avahi.enable = false;
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
     };
-    # Enable CUPS to print documents. Web interface: http://localhost:631
-    # printing.enable = true;
   };
 
   imports = [
