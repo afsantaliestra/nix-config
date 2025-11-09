@@ -1,3 +1,5 @@
+bindkey '^H' backward-kill-word      # Ctrl+Backspace
+
 function dcke() {
     docker exec -it "$1" /bin/bash
 }

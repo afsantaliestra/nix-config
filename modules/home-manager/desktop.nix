@@ -28,5 +28,22 @@ in {
         };
       };
     };
+
+    programs = {
+      alacritty = {
+        enable = true;
+        theme = "tokyo_night_storm";
+        settings = {
+          terminal.shell = {
+            program = "tmux";
+            args = ["new-session" "-A" "-s" "main"];
+          };
+        };
+      };
+      librewolf = {
+        enable = true;
+        languagePacks = ["en-US" "es"];
+      };
+    };
   };
 }
