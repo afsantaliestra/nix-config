@@ -47,7 +47,23 @@
     };
     tmux = {
       enable = true;
-      extraConfig = "set-option -g mouse on";
+      mouse = true;
+      terminal = "tmux-256color";
+      baseIndex = 1;
+      plugins = with pkgs.tmuxPlugins; [
+        # cpu
+        {
+          plugin = resurrect;
+          extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        }
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '1' # minutes
+          '';
+        }
+      ];
     };
     helix.enable = true;
   };

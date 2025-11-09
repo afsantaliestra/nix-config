@@ -23,6 +23,8 @@
   dckr = "docker restart";
   dckl = "docker logs -f --tail=50";
 
+  # code = "codium";
+
   # SSH CONNECTIONS
   # <alias> = "ssh <user>@<IP or domain>";
 }

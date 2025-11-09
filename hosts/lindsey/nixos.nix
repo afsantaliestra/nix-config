@@ -20,7 +20,7 @@
       allowPing = false;
     };
   };
-
+  programs.coolercontrol.enable = true;
   services = {
     avahi.enable = false;
     tailscale = {
