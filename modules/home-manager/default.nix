@@ -69,7 +69,7 @@
   };
 
   imports = [
-    ./options.nix
+    ../options.nix
     ./git
     ./zsh
     ./desktop.nix

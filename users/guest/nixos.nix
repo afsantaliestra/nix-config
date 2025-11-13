@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   users = {
-    groups.necros.gid = 1000;
-    users.necros = {
+    groups.guest.gid = 2000;
+    users.guest = {
       isNormalUser = true;
-      uid = 1000;
-      group = "necros";
+      uid = 2000;
+      group = "guest";
       extraGroups = ["users" "wheel" "networkmanager" "docker"];
       shell = pkgs.zsh;
       ignoreShellProgramCheck = true; # Zsh is installed with Home-Manager.

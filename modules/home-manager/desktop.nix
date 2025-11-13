@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  cfgUser = config.user;
+  cfgSystem = config.system;
 in {
-  config = lib.mkIf cfgUser.hasDesktop {
+  config = lib.mkIf cfgSystem.hasDesktop {
     dconf = {
       enable = true;
       settings = {

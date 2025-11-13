@@ -1,8 +1,15 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: let
+  cfgSystem = config.system;
+in {
   system = {
     enableNixLd = true;
     enableContainers = true;
     hasDesktop = true;
+    trustedUsers = ["necros"];
   };
 
   boot.loader = {
@@ -11,6 +18,7 @@
   };
 
   networking = {
+    hostName = "laia";
     networkmanager.enable = true;
     firewall = {
       enable = true;
