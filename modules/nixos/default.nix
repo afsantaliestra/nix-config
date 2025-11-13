@@ -20,7 +20,7 @@ in {
   # printing.enable = true;
 
   imports = [
-    ./options.nix
+    ../options.nix
     ./common.nix
     ./desktop.nix
     ./wsl.nix

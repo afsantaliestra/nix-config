@@ -9,6 +9,11 @@ fmt:
 	@$(call pinfo,Formatting Nix code with Alejandra Style)
 	alejandra ./
 
+.PHONY: check
+check: fmt
+	@$(call pinfo,Checking flake)
+	nix flake check --show-trace
+
 .PHONY: wsl
 wsl: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: wsl)
