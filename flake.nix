@@ -29,6 +29,9 @@
       laia = helpers.mkNixos {
         hostname = "laia";
       };
+      kalina = helpers.mkNixos {
+        hostname = "kalina";
+      };
       lindsey = helpers.mkNixos {
         hostname = "lindsey";
       };
