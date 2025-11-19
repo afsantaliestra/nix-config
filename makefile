@@ -24,6 +24,11 @@ laia: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: laia)
 	sudo nixos-rebuild switch --flake ./#laia
 
+.PHONY: kalina
+kalina: fmt
+	@$(call pinfo,NixOS Rebuild Switch - Host: kalina)
+	sudo nixos-rebuild switch --flake ./#kalina
+
 .PHONY: lindsey
 lindsey: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: lindsey)
