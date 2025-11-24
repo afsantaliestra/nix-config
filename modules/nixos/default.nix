@@ -11,9 +11,15 @@ in {
     trusted-users = cfgSystem.trustedUsers;
   };
 
+  environment.systemPackages = with pkgs; [];
+
   programs = {
     mtr.enable = true;
     nix-ld.enable = cfgSystem.enableNixLd;
+  };
+
+  services = {
+    tailscale.package = "${pkgs.unstable.tailscale}";
   };
 
   # Enable CUPS to print documents. Web interface: http://localhost:631

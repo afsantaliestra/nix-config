@@ -39,7 +39,10 @@ debian: fmt
 	@$(call pinfo,Home Manager Switch - Profile: debian)
 	home-manager switch --flake ./#debian
 
-.PHONY: clean
+.PHONY: update clean
+update:
+	nix flake update
+
 clean:
 	@$(call pinfo,Nix Collect Garbage older than 14d)
 	nix-collect-garbage -d --delete-older-than 14d

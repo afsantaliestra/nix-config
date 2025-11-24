@@ -21,7 +21,6 @@
       btop
       htop
       nano
-      uv
       jq
       yq
       vim
@@ -30,6 +29,7 @@
       ctop
       lazydocker
       alejandra
+      unstable.uv
       unstable.claude-code
     ];
   };
@@ -70,7 +70,7 @@
 
   imports = [
     ../options.nix
-    ./git
+    ./git.nix
     ./zsh
     ./desktop.nix
   ];
