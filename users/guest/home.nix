@@ -1,10 +1,10 @@
 {config, ...}: {
   home = {
-    username = "necros";
-    homeDirectory = "/home/necros";
+    username = "guest";
+    homeDirectory = "/home/guest";
 
     sessionPath = [
-      "/home/necros/.local/bin"
+      "/home/guest/.local/bin"
     ];
   };
 

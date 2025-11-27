@@ -1,8 +1,14 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: let
+  cfgSystem = config.system;
+in {
   system = {
-    enableNixLd = true;
-    enableContainers = true;
     hasDesktop = true;
+    enableContainers = true;
+    trustedUsers = ["necros"];
   };
 
   boot.loader = {
@@ -11,7 +17,7 @@
   };
 
   networking = {
-    hostName = "lindsey";
+    hostName = "kalina";
     networkmanager.enable = true;
     firewall = {
       enable = true;
@@ -21,13 +27,23 @@
       allowPing = false;
     };
   };
-  programs.coolercontrol.enable = true;
+
+  environment.systemPackages = with pkgs; [];
+
   services = {
     avahi.enable = false;
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
     };
+    # logind = {
+    #   powerKey = "suspend";
+    #   powerKeyLongPress = "poweroff";
+    #   extraConfig = ''
+    #     IdleAction=ignore
+    #     IdleActionSec=0
+    #   '';
+    # };
   };
 
   imports = [

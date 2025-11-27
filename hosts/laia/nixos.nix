@@ -9,6 +9,7 @@ in {
     enableNixLd = true;
     enableContainers = true;
     hasDesktop = true;
+    trustedUsers = ["necros"];
   };
 
   boot.loader = {
@@ -17,6 +18,7 @@ in {
   };
 
   networking = {
+    hostName = "laia";
     networkmanager.enable = true;
     firewall = {
       enable = true;

@@ -9,6 +9,11 @@ fmt:
 	@$(call pinfo,Formatting Nix code with Alejandra Style)
 	alejandra ./
 
+.PHONY: check
+check: fmt
+	@$(call pinfo,Checking flake)
+	nix flake check --show-trace
+
 .PHONY: wsl
 wsl: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: wsl)
@@ -18,6 +23,11 @@ wsl: fmt
 laia: fmt
 	@$(call pinfo,NixOS Rebuild Switch - Host: laia)
 	sudo nixos-rebuild switch --flake ./#laia
+
+.PHONY: kalina
+kalina: fmt
+	@$(call pinfo,NixOS Rebuild Switch - Host: kalina)
+	sudo nixos-rebuild switch --flake ./#kalina
 
 .PHONY: lindsey
 lindsey: fmt
@@ -29,7 +39,10 @@ debian: fmt
 	@$(call pinfo,Home Manager Switch - Profile: debian)
 	home-manager switch --flake ./#debian
 
-.PHONY: clean
+.PHONY: update clean
+update:
+	nix flake update
+
 clean:
 	@$(call pinfo,Nix Collect Garbage older than 14d)
 	nix-collect-garbage -d --delete-older-than 14d

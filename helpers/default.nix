@@ -49,7 +49,6 @@
     pkgs,
     ...
   }: {
-    networking.hostName = hostname;
     imports =
       [
         self.outputs.nixosModules.default

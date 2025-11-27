@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  cfgUser = config.user;
+  cfgSystem = config.system;
 in {
-  config = lib.mkIf cfgUser.hasDesktop {
+  config = lib.mkIf cfgSystem.hasDesktop {
     dconf = {
       enable = true;
       settings = {
@@ -26,6 +26,23 @@ in {
         "org/gnome/settings-daemon/plugins/power" = {
           sleep-inactive-ac-type = "nothing";
         };
+      };
+    };
+
+    programs = {
+      alacritty = {
+        enable = true;
+        theme = "tokyo_night_storm";
+        settings = {
+          terminal.shell = {
+            program = "tmux";
+            args = ["new-session" "-A" "-s" "main"];
+          };
+        };
+      };
+      librewolf = {
+        enable = true;
+        languagePacks = ["en-US" "es"];
       };
     };
   };
