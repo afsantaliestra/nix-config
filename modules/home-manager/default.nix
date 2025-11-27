@@ -31,6 +31,8 @@
       alejandra
       unstable.uv
       unstable.claude-code
+      unstable.gemini-cli
+      unstable.opencode
     ];
   };
 
