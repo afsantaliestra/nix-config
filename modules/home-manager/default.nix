@@ -24,6 +24,7 @@
       jq
       yq
       vim
+      bat
       dig
       dive
       ctop

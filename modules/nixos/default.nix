@@ -29,7 +29,9 @@ in {
     ../options.nix
     ./common.nix
     ./desktop.nix
-    ./wsl.nix
     ./virtualization.nix
+    ./wsl.nix
+    ./boot-loader.nix
+    ./dns.nix
   ];
 }

@@ -1,1 +1,5 @@
-{config, ...}: {}
+{config, ...}: {
+  system = {
+    hasDesktop = true;
+  };
+}

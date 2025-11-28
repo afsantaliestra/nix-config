@@ -8,12 +8,8 @@ in {
   system = {
     hasDesktop = true;
     enableContainers = true;
+    useBootLoader = true;
     trustedUsers = ["necros"];
-  };
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
   };
 
   networking = {

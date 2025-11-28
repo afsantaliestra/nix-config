@@ -3,11 +3,8 @@
     enableNixLd = true;
     enableContainers = true;
     hasDesktop = true;
-  };
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+    useBootLoader = true;
+    trustedUsers = ["necros"];
   };
 
   networking = {

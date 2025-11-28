@@ -8,13 +8,10 @@ in {
   system = {
     enableNixLd = true;
     enableContainers = true;
+    enableDns = true;
     hasDesktop = true;
+    useBootLoader = true;
     trustedUsers = ["necros"];
-  };
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
   };
 
   networking = {
@@ -67,6 +64,12 @@ in {
         AllowUsers = cfgSystem.trustedUsers;
       };
       openFirewall = false;
+    };
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        "@reboot root /home/necros/workspace/nix-config/hosts/laia/reboot-script.sh"
+      ];
     };
   };
 
