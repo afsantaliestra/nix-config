@@ -4,7 +4,7 @@
   ...
 }: {
   home = {
-    stateVersion = "25.05";
+    stateVersion = "25.11";
 
     file = {};
     sessionVariables = {};
@@ -30,7 +30,7 @@
       ctop
       lazydocker
       alejandra
-      unstable.uv
+      uv
       unstable.claude-code
       unstable.gemini-cli
       unstable.opencode

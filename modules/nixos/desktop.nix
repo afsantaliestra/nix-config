@@ -8,13 +8,13 @@
 in {
   config = lib.mkIf cfgSystem.hasDesktop {
     environment.systemPackages = with pkgs; [
-      unstable.brave
-      unstable.telegram-desktop
-      unstable.discord
+      brave
+      telegram-desktop
+      discord
+      moonlight-qt
+      obs-studio
       unstable.obsidian
-      unstable.moonlight-qt
       unstable.vscodium
-      unstable.obs-studio
     ];
 
     programs = {
@@ -22,13 +22,11 @@ in {
     };
 
     services = {
-      xserver = {
-        displayManager.gdm = {
-          enable = true;
-          autoSuspend = false;
-        };
-        desktopManager.gnome.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        autoSuspend = false;
       };
+      desktopManager.gnome.enable = true;
       pulseaudio.enable = false;
       pipewire = {
         enable = true;

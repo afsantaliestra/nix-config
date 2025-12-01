@@ -19,7 +19,7 @@ in {
   };
 
   services = {
-    tailscale.package = "${pkgs.unstable.tailscale}";
+    tailscale.package = "${pkgs.tailscale}";
   };
 
   # Enable CUPS to print documents. Web interface: http://localhost:631

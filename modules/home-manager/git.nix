@@ -5,7 +5,7 @@
 }: {
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       credential.helper = "store";
       push.autoSetupRemote = true;
       init = {

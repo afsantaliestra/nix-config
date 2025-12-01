@@ -48,12 +48,12 @@ in {
       useRoutingFeatures = "server";
     };
     logind = {
-      powerKey = "suspend";
-      powerKeyLongPress = "poweroff";
-      extraConfig = ''
-        IdleAction=ignore
-        IdleActionSec=0
-      '';
+      settings.Login = {
+        IdleAction = "ignore";
+        IdleActionSec = 0;
+        HandlePowerKey = "suspend";
+        HandlePowerKeyLongPress = "poweroff";
+      };
     };
     openssh = {
       enable = true;
