@@ -31,6 +31,7 @@
       };
       laia = helpers.mkNixos {
         hostname = "laia";
+        extraUsers = ["guest"];
       };
       kalina = helpers.mkNixos {
         hostname = "kalina";

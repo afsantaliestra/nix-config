@@ -5,7 +5,7 @@
       isNormalUser = true;
       uid = 2000;
       group = "guest";
-      extraGroups = ["users" "wheel" "networkmanager" "docker"];
+      extraGroups = ["users"];
       shell = pkgs.zsh;
       ignoreShellProgramCheck = true; # Zsh is installed with Home-Manager.
     };
