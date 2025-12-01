@@ -9,7 +9,9 @@
   };
 
   programs.git = {
-    userName = "";
-    userEmail = "";
+    settings.user = {
+      name = "";
+      email = "";
+    };
   };
 }
