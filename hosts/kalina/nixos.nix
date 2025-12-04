@@ -14,6 +14,11 @@ in {
 
   system.stateVersion = "25.11";
 
+  boot.kernelParams = [
+    "video=DSI-1:panel_orientation=right_side_up"
+    "fbcon=rotate:1"
+  ];
+
   networking = {
     hostName = "kalina";
     networkmanager.enable = true;
