@@ -12,6 +12,8 @@ in {
     trustedUsers = ["necros"];
   };
 
+  system.stateVersion = "25.11";
+
   networking = {
     hostName = "kalina";
     networkmanager.enable = true;

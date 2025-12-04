@@ -23,6 +23,11 @@ in {
         "org/gnome/desktop/peripherals/mouse" = {
           natural-scroll = false;
         };
+        "org/gnome/desktop/input-sources" = {
+          current = lib.hm.gvariant.mkUint32 0;
+          sources = [(lib.hm.gvariant.mkTuple ["xkb" "es+deadtilde"])];
+          xkb-options = [];
+        };
         "org/gnome/settings-daemon/plugins/power" = {
           sleep-inactive-ac-type = "nothing";
         };
